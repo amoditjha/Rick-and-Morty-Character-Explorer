@@ -90,7 +90,7 @@ const Filters: React.FC<FiltersProps> = ({
                 onChange={handleFilterChange}
                 className="w-full rounded-md border border-gray-300 p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="">All Statuses</option>
+                <option value="">All Status</option>
                 {statuses.map((status) => (
                   <option key={status} value={status}>
                     {status}
