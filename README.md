@@ -1,61 +1,90 @@
 # Case Study: Rick and Morty Character Table
 
-This was a time-bound assignment (3–4 hours) for DCI. The task was to build a responsive character table using the Rick and Morty API—with sorting, filtering, pagination, and a clean UI. The goal for me was simple: deliver a solid MVP that feels smooth, looks clean, and shows how I approach building things under pressure.
+This project was a time-bound assignment (3–4 hours) for DCI. The task was to build a responsive character table using the Rick and Morty API, featuring sorting, filtering, pagination, and a clean UI. The goal was to deliver a solid MVP that feels smooth, looks clean, and demonstrates my approach to building under pressure.
 
-# Tech Stack
+---
 
-Vite – for fast setup and dev experience
-React + TypeScript – for component-based dev with type safety
-Tailwind CSS – to move quickly on the UI side
-Rick and Morty API – free, structured data source
-Vercel – for instant deployment
+## Tech Stack
 
-# What It Does
+- **Vite**: For fast setup and development experience.
+- **React + TypeScript**: For component-based development with type safety.
+- **Tailwind CSS**: To quickly design and implement the UI.
+- **Rick and Morty API**: A free, structured data source.
+- **Vercel**: For instant deployment.
 
-Fetches character data from the API
-Displays info in a responsive, scrollable table
-Users can sort by name, status, and species
-Search and filter in real-time
-Handles pagination through API's next/prev
-Fully responsive UI that works across devices
+---
 
-# Challenges & Approach
+## Features
 
-Sorting & Filtering Logic:
-Built dynamic filter/sort functions that could easily scale. Managing local state while keeping UI snappy was key, so I leaned into clean state flows and smart re-renders.
+- Fetches character data from the Rick and Morty API.
+- Displays information in a responsive, scrollable table.
+- Allows users to:
+    - Sort by name, status, and species.
+    - Search and filter in real-time.
+- Handles pagination using the API's `next` and `prev` endpoints.
+- Fully responsive UI that works seamlessly across devices.
 
-Handling the API Smartly:
-The API pagination and filtering needed to sync perfectly. I avoided redundant calls and used the info object (next, prev, count) for better control over requests.
+---
 
-Design on a Clock:
-Focused on mobile-first and scrollable layouts. Tailwind made it easier to test and polish spacing, responsiveness, and dark/light compatibility quickly.
+## Challenges & Approach
 
-TypeScript in Real Time:
-Still climbing the TypeScript hill—but this project helped a ton. Got more hands-on with defining API types, props, and improving error handling across components.
+### Sorting & Filtering Logic
+- Built dynamic filter and sort functions that are scalable.
+- Managed local state efficiently to ensure a snappy UI.
+- Focused on clean state flows and optimized re-renders.
 
-# Key Takeaways
+### API Handling
+- Synchronized API pagination and filtering to avoid redundant calls.
+- Leveraged the API's `info` object (e.g., `next`, `prev`, `count`) for better request control.
 
-Built a full MVP in under 4 hours with real API integration
-Improved my handling of UI logic for tables (filters, sorts, pagination)
-Gained more confidence using TypeScript in a realistic setup
-Used Tailwind CSS to quickly ship a solid, responsive design
-Practiced writing clean, component-based logic that’s easy to scale
+### Design Under Time Constraints
+- Adopted a mobile-first approach with scrollable layouts.
+- Used Tailwind CSS to quickly test and refine spacing, responsiveness, and dark/light mode compatibility.
 
-# Live App & Repo
-Live Demo: [character-table.vercel.app](https://character-table.vercel.app/)
+### TypeScript Integration
+- Improved my understanding of TypeScript by defining API types, props, and enhancing error handling.
+- Gained hands-on experience in a real-world project setup.
 
-# Local Setup Instructions
+---
+
+## Key Takeaways
+
+- Delivered a full MVP with real API integration in under 4 hours.
+- Enhanced my skills in handling UI logic for tables (filters, sorts, pagination).
+- Gained confidence in using TypeScript effectively.
+- Leveraged Tailwind CSS to ship a responsive and polished design quickly.
+- Practiced writing clean, scalable, and component-based logic.
+
+---
+
+## Live App & Repository
+
+- **Live Demo**: [character-table.vercel.app](https://character-table.vercel.app/)
+- **GitHub Repository**: [amoditjha/character-table](https://github.com/amoditjha/character-table)
+
+---
+
+## Local Setup Instructions
+
 To set up and run the project locally, follow these steps:
 
-1. Clone the Repository:
-[ git clone https://github.com/amoditjha/character-table.git
-cd character-table] 
+1. **Clone the Repository**:
+     ```bash
+     git clone https://github.com/amoditjha/character-table.git
+     cd character-table
+     ```
 
-2. Install Dependencies:
-[ npm install ]
-Ensure you have Node.js installed. Then, install the project dependencies
+2. **Install Dependencies**:
+     ```bash
+     npm install
+     ```
+     Ensure you have Node.js installed before running this command.
 
-3. Start the Development Server:
- [npm run dev]
+3. **Start the Development Server**:
+     ```bash
+     npm run dev
+     ```
 
+---
 
+Feel free to explore the codebase and provide feedback!

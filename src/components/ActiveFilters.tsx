@@ -22,7 +22,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({ filters, onRemoveFilter }
       {activeFilters.map(([key, value]) => (
         <span
           key={key}
-          className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 border border-blue-200"
+          className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm transition-colors"
         >
           {key}: {value}
           <button

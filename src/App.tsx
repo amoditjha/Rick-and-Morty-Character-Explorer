@@ -8,7 +8,6 @@ import ErrorDisplay from './components/ErrorDisplay';
 import EmptyState from './components/EmptyState';
 import ActiveFilters from './components/ActiveFilters';
 import { useCharacters } from './hooks/useCharacters';
-import { Users } from 'lucide-react';
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,7 +39,7 @@ const App: React.FC = () => {
     if (debouncedSearchTerm !== filters.name) {
       setFilters({ name: debouncedSearchTerm, page: 1 });
     }
-  }, [debouncedSearchTerm, filters.name]);
+  }, [debouncedSearchTerm, filters.name,setFilters]);
 
   // Fetch species for filter dropdown
   useEffect(() => {
