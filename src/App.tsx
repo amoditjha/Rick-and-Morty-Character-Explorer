@@ -97,7 +97,7 @@ const App: React.FC = () => {
               alt="Rick Sanchez"
               className="mr-2 h-8 w-8 rounded-full"
               />
-              Rick and Morty Explorer
+              Rick and Morty Character Explorer
             </h1>
             </div>
         </div>
