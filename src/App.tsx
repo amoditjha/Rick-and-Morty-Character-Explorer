@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import SearchBar from './components/SearchBar';
-import Filters from './components/Filters';
-import CharacterTable from './components/CharacterTable';
-import Pagination from './components/Pagination';
-import LoadingSkeleton from './components/LoadingSkeleton';
-import ErrorDisplay from './components/ErrorDisplay';
-import EmptyState from './components/EmptyState';
-import ActiveFilters from './components/ActiveFilters';
-import { useCharacters } from './hooks/useCharacters';
+import React, { useState, useEffect } from "react";
+import SearchBar from "./components/SearchBar";
+import Filters from "./components/Filters";
+import CharacterTable from "./components/CharacterTable";
+import Pagination from "./components/Pagination";
+import LoadingSkeleton from "./components/LoadingSkeleton";
+import ErrorDisplay from "./components/ErrorDisplay";
+import EmptyState from "./components/EmptyState";
+import ActiveFilters from "./components/ActiveFilters";
+import { useCharacters } from "./hooks/useCharacters";
 
 const App: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [uniqueSpecies, setUniqueSpecies] = useState<string[]>([]);
-  
+
   const {
     characters,
     loading,
@@ -50,9 +50,11 @@ const App: React.FC = () => {
 
       while (hasMore) {
         try {
-          const response = await fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`);
+          const response = await fetch(
+            `https://rickandmortyapi.com/api/character?page=${nextPage}`
+          );
           const data = await response.json();
-          
+
           data.results.forEach((char: any) => {
             if (char.species) {
               allSpecies.add(char.species);
@@ -65,7 +67,7 @@ const App: React.FC = () => {
             hasMore = false;
           }
         } catch (error) {
-          console.error('Error fetching species:', error);
+          console.error("Error fetching species:", error);
           hasMore = false;
         }
       }
@@ -89,17 +91,14 @@ const App: React.FC = () => {
     setFilters({ ...newFilters, page: 1 });
   };
 
-  const handleRemoveFilter = (filterType: 'status' | 'gender' | 'species') => {
-    const newFilters = { ...filters, [filterType]: '' };
+  const handleRemoveFilter = (filterType: "status" | "gender" | "species") => {
+    const newFilters = { ...filters, [filterType]: "" };
     setFilters(newFilters);
   };
 
   const handleSort = () => {
-    const newDirection = sortDirection === null
-      ? 'asc'
-      : sortDirection === 'asc'
-        ? 'desc'
-        : null;
+    const newDirection =
+      sortDirection === null ? "asc" : sortDirection === "asc" ? "desc" : null;
     setSortDirection(newDirection);
   };
 
@@ -118,16 +117,16 @@ const App: React.FC = () => {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center">
               <img
-              src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-              alt="Rick Sanchez"
-              className="mr-2 h-8 w-8 rounded-full"
+                src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                alt="Rick Sanchez"
+                className="mr-2 h-8 w-8 rounded-full"
               />
               Rick and Morty Character Explorer
             </h1>
           </div>
         </div>
       </header>
-      
+
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div className="bg-white shadow-sm rounded-lg p-6 mb-6">
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
@@ -140,8 +139,8 @@ const App: React.FC = () => {
             </div>
             <div className="flex justify-end">
               <Filters
-                statuses={['Alive', 'Dead', 'unknown']}
-                genders={['Female', 'Male', 'Genderless', 'unknown']}
+                statuses={["Alive", "Dead", "unknown"]}
+                genders={["Female", "Male", "Genderless", "unknown"]}
                 species={uniqueSpecies}
                 onFilterChange={handleFilterChange}
                 currentFilters={{
@@ -161,7 +160,7 @@ const App: React.FC = () => {
             onRemoveFilter={handleRemoveFilter}
           />
         </div>
-        
+
         {loading ? (
           <LoadingSkeleton />
         ) : error ? (
@@ -177,7 +176,7 @@ const App: React.FC = () => {
                 onSort={handleSort}
               />
             </div>
-            
+
             {info && (
               <div className="mt-6 bg-white shadow-sm rounded-lg p-4 border border-gray-200">
                 <Pagination
@@ -192,18 +191,36 @@ const App: React.FC = () => {
           </>
         )}
       </main>
-      
+
       <footer className="bg-white mt-12 border-t border-gray-200">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-gray-500">
-            Data provided by{' '}
+          <p className="text-center text-sm text-gray-500 space-y-2 sm:space-y-0 sm:space-x-2">
+            <span className="font-bold">Data provided by:</span>
             <a
               href="https://rickandmortyapi.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-blue-500 hover:text-blue-700 transition-colors pr-2"
             >
               The Rick and Morty API
+            </a>
+            |<span className="font-bold"> Assignment For:</span>
+            <a
+              href="https://dreamcyberinfoway.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700 transition-colors pr-2"
+            >
+              Dream Cyber Infoway, Indore
+            </a>
+            |<span className="font-bold"> Developed by:</span>
+            <a
+              href="https://amoditjha.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700 transition-colors"
+            >
+              Amodit Jha
             </a>
           </p>
         </div>
