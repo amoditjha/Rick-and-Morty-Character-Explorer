@@ -48,14 +48,14 @@ Live Demo: [character-table.vercel.app](https://character-table.vercel.app/)
 To set up and run the project locally, follow these steps:
 
 1. Clone the Repository:
-git clone https://github.com/amoditjha/character-table.git
-cd character-table
+[ git clone https://github.com/amoditjha/character-table.git
+cd character-table] 
 
 2. Install Dependencies:
- npm install
+[ npm install ]
 Ensure you have Node.js installed. Then, install the project dependencies
 
 3. Start the Development Server:
- npm run dev
+ [npm run dev]
 
 
