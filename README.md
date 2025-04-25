@@ -43,7 +43,7 @@ This project was a time-bound assignment (3–4 hours) for DCI. The task was to 
 
 ### TypeScript Integration
 - Improved my understanding of TypeScript by defining API types, props, and enhancing error handling.
-- Gained hands-on experience in a real-world project setup.
+- Gained more hands-on experience in this project.
 
 ---
 
