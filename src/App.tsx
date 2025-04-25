@@ -39,17 +39,42 @@ const App: React.FC = () => {
     if (debouncedSearchTerm !== filters.name) {
       setFilters({ name: debouncedSearchTerm, page: 1 });
     }
-  }, [debouncedSearchTerm, filters.name,setFilters]);
+  }, [debouncedSearchTerm, filters.name]);
 
-  // Fetch species for filter dropdown
+  // Fetch all available species
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character?page=1')
-      .then(res => res.json())
-      .then(data => {
-        const species: string[] = [...new Set((data.results as { species: string }[]).map((char) => char.species))];
-        setUniqueSpecies(species);
-      })
-      .catch(err => console.error('Error fetching species:', err));
+    const fetchAllSpecies = async () => {
+      const allSpecies = new Set<string>();
+      let nextPage = 1;
+      let hasMore = true;
+
+      while (hasMore) {
+        try {
+          const response = await fetch(`https://rickandmortyapi.com/api/character?page=${nextPage}`);
+          const data = await response.json();
+          
+          data.results.forEach((char: any) => {
+            if (char.species) {
+              allSpecies.add(char.species);
+            }
+          });
+
+          if (data.info.next) {
+            nextPage++;
+          } else {
+            hasMore = false;
+          }
+        } catch (error) {
+          console.error('Error fetching species:', error);
+          hasMore = false;
+        }
+      }
+
+      const sortedSpecies = Array.from(allSpecies).sort();
+      setUniqueSpecies(sortedSpecies);
+    };
+
+    fetchAllSpecies();
   }, []);
 
   const handleSearch = () => {
@@ -90,7 +115,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center">
               <img
               src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
@@ -99,7 +124,7 @@ const App: React.FC = () => {
               />
               Rick and Morty Character Explorer
             </h1>
-            </div>
+          </div>
         </div>
       </header>
       
@@ -167,6 +192,22 @@ const App: React.FC = () => {
           </>
         )}
       </main>
+      
+      <footer className="bg-white mt-12 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-500">
+            Data provided by{' '}
+            <a
+              href="https://rickandmortyapi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700 transition-colors"
+            >
+              The Rick and Morty API
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
