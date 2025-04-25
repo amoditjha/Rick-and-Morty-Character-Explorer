@@ -19,7 +19,7 @@ This project was a time-bound assignment (3–4 hours) for DCI. The task was to 
 - Fetches character data from the Rick and Morty API.
 - Displays information in a responsive, scrollable table.
 - Allows users to:
-    - Sort by name, status, and species.
+    - Sort by name.
     - Search and filter in real-time.
 - Handles pagination using the API's `next` and `prev` endpoints.
 - Fully responsive UI that works seamlessly across devices.
@@ -43,7 +43,7 @@ This project was a time-bound assignment (3–4 hours) for DCI. The task was to 
 
 ### TypeScript Integration
 - Improved my understanding of TypeScript by defining API types, props, and enhancing error handling.
-- Gained hands-on experience in a real-world project setup.
+- Gained more hands-on experience in this project.
 
 ---
 
