@@ -1,6 +1,6 @@
 # Case Study: Rick and Morty Character Table
 
-This project was a time-bound assignment (3–4 hours) for DCI. The task was to build a responsive character table using the Rick and Morty API, featuring sorting, filtering, pagination, and a clean UI. The goal was to deliver a solid MVP that feels smooth, looks clean, and demonstrates my approach to building under pressure.
+This project was a time-bound assignment (4-5 hours) for Dream Cyber Infoway, Indore. The task was to build a responsive character table using the Rick and Morty API, featuring sorting, filtering, pagination, and a clean UI. The goal was to deliver a solid MVP that feels smooth, looks clean, and demonstrates my approach to building under pressure.
 
 ---
 
