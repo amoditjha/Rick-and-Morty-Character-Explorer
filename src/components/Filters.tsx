@@ -120,19 +120,21 @@ const Filters: React.FC<FiltersProps> = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Species
+              Species
               </label>
               <select
-                name="species"
-                value={localFilters.species}
-                onChange={handleFilterChange}
-                className="w-full rounded-md border border-gray-300 p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              name="species"
+              value={localFilters.species}
+              onChange={handleFilterChange}
+              className="w-full rounded-md border border-gray-300 p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="">All Species</option>
-                {species.map((specie) => (
-                  <option key={specie} value={specie}>
-                    {specie}
-                  </option>
+              <option value="">All Species</option>
+              {species
+                .filter((specie) => specie.toLocaleLowerCase() !== "poopybutthole")
+                .map((specie) => (
+                <option key={specie} value={specie}>
+                  {specie}
+                </option>
                 ))}
               </select>
             </div>
