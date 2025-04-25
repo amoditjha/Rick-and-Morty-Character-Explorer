@@ -19,7 +19,7 @@ This project was a time-bound assignment (3–4 hours) for DCI. The task was to 
 - Fetches character data from the Rick and Morty API.
 - Displays information in a responsive, scrollable table.
 - Allows users to:
-    - Sort by name, status, and species.
+    - Sort by name.
     - Search and filter in real-time.
 - Handles pagination using the API's `next` and `prev` endpoints.
 - Fully responsive UI that works seamlessly across devices.
